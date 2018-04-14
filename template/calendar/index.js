@@ -82,6 +82,9 @@ const conf = {
 		this.setData({
 			'calendar.days': days,
 		});
+    wx.navigateTo({
+      url: '../../pages/reserve/reserve'
+    });
 	},
 	chooseYearAndMonth() {
 		let pickerYear = [];
