@@ -1,8 +1,9 @@
 {
   "pages": [
+    "pages/reserve/reserve",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/reserve/reserve"
+    "pages/schedule/schedule"
   ],
   "window": {
     "backgroundTextStyle": "light",

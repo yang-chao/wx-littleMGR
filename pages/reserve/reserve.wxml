@@ -1,2 +1,18 @@
 <!--pages/reserve/reserve.wxml-->
-<text>pages/reserve/reserve.wxml</text>
+<view class='tr'>
+  <!-- 时间 -->
+  <view class='tc'>
+    <view wx:for="{{timeList}}">
+      <view class='t_item'>{{item}}</view>
+    </view>
+  </view>
+
+  <!-- 排班 -->
+  <block wx:for="{{arrange}}">
+    <view class='tc'>
+      <view wx:for="{{item}}" wx:for-item="schedule">
+        <view class='t_item' data-schedule="schedule" bindtap='openSchedule'>{{schedule.reserver}}</view>
+      </view>
+    </view>
+  </block>
+</view>

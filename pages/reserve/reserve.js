@@ -5,7 +5,48 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    timeList: [
+      "10:00",
+      "10:20",
+      "10:40",
+      "11:00",
+      "11:20",
+      "11:40"
+    ],
+    arrange:[
+      [
+        {
+          reserver: "小明",
+          reserveObject: "Brint",
+          time: "10:00",
+          event: "音频",
+          studio: "F16"
+        },
+        {
+          reserver: "小红",
+          reserveObject: "Brint",
+          time: "10:20",
+          event: "视频频",
+          studio: "F25"
+        }
+      ],
+      [
+        {
+          reserver: "小明",
+          reserveObject: "Audrey",
+          time: "10:00",
+          event: "音频",
+          studio: "F16"
+        },
+        {
+          reserver: "小红",
+          reserveObject: "Audrey",
+          time: "10:20",
+          event: "视频频",
+          studio: "F25"
+        }
+      ]
+    ]
   },
 
   /**
@@ -62,5 +103,11 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  openSchedule: function () {
+    wx.navigateTo({
+      url: '../schedule/schedule' 
+    });
   }
 })
