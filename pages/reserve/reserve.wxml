@@ -11,7 +11,7 @@
   <block wx:for="{{arrange}}">
     <view class='tc'>
       <view wx:for="{{item}}" wx:for-item="schedule">
-        <view class='t_item' data-schedule="schedule" bindtap='openSchedule'>{{schedule.reserver}}</view>
+        <view class='t_item' data-schedule="schedule" bindtap='openSchedule'>{{schedule.cd}}</view>
       </view>
     </view>
   </block>

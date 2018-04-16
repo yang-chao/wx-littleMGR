@@ -16,15 +16,15 @@ Page({
     arrange:[
       [
         {
-          reserver: "小明",
-          reserveObject: "Brint",
+          cd: "小明",
+          ft: "Brint",
           time: "10:00",
           event: "音频",
           studio: "F16"
         },
         {
-          reserver: "小红",
-          reserveObject: "Brint",
+          cd: "小红",
+          ft: "Brint",
           time: "10:20",
           event: "视频频",
           studio: "F25"
@@ -32,15 +32,15 @@ Page({
       ],
       [
         {
-          reserver: "小明",
-          reserveObject: "Audrey",
+          cd: "小明",
+          ft: "Audrey",
           time: "10:00",
           event: "音频",
           studio: "F16"
         },
         {
-          reserver: "小红",
-          reserveObject: "Audrey",
+          cd: "小红",
+          ft: "Audrey",
           time: "10:20",
           event: "视频频",
           studio: "F25"

@@ -1,0 +1,40 @@
+[
+  {
+    "name": "Brint",
+    "arrange": [
+      {
+        "cd": "小明",
+        "ft": "Brint",
+        "time": "10:00",
+        "event": "音频",
+        "studio": "F16"
+      },
+      {
+        "cd": "小红",
+        "ft": "Brint",
+        "time": "10:20",
+        "event": "音频",
+        "studio": "F25"
+      }
+    ]
+  },
+  {
+    "name": "Audrey",
+    "arrange": [
+      {
+        "cd": "小明",
+        "ft": "Audrey",
+        "time": "11:00",
+        "event": "音频",
+        "studio": "F16"
+      },
+      {
+        "cd": "小红",
+        "ft": "Audrey",
+        "time": "11:20",
+        "event": "音频",
+        "studio": "F25"
+      }
+    ]
+  }
+]

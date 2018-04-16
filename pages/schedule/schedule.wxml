@@ -1,5 +1,21 @@
 <!--pages/schedule/schedule.wxml-->
-<view>
+<view class='tr'>
   <view class='tc'>
+    <view>CD：</view>
+    <view>Time：</view>
+    <view>FT：</view>
+    <view>Event：</view>
+    <view>Studio：</view>
   </view>
+  <view class='tc'>
+    <text>小明</text>
+    <text>11:20</text>
+    <text>Brint</text>
+    <text>音频</text>
+    <text>F16</text>
+  </view>
+</view>
+<view class='bottom_zone'>
+  <button class='btn_confirm'>confirm</button>
+  <button class='btn_cancel'>cancel</button>
 </view>
