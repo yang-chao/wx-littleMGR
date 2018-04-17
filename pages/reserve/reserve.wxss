@@ -12,7 +12,11 @@
 }
 
 .t_item {
-  padding: 10rpx;
+  height: 80rpx;
+  width: 150rpx;
+  vertical-align: middle;
+  display: table-cell;
+  text-align: center;
   border-right: 1rpx #ddd solid;
   border-bottom: 1rpx #ddd solid;
 }

@@ -2,6 +2,7 @@
 <view class='tr'>
   <!-- 时间 -->
   <view class='tc'>
+    <view class='t_item'></view>
     <view wx:for="{{timeList}}">
       <view class='t_item'>{{item}}</view>
     </view>
@@ -10,9 +11,12 @@
   <!-- 排班 -->
   <block wx:for="{{arrange}}">
     <view class='tc'>
-      <view wx:for="{{item}}" wx:for-item="schedule">
-        <view class='t_item' data-schedule="schedule" bindtap='openSchedule'>{{schedule.cd}}</view>
-      </view>
+      <view class='t_item'>{{item.name}}</view>
+      <block wx:for="{{item.schedule}}" wx:for-item="schedule">
+        <view class='t_item'>
+          <view wx:if="{{index == schedule.timeIndex}}" data-schedule="{{schedule}}" bindtap='openSchedule'>{{schedule.cd}}</view>
+        </view>
+      </block>
     </view>
   </block>
 </view>
