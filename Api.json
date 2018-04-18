@@ -1,40 +1,65 @@
 [
   {
     "name": "Brint",
-    "arrange": [
+    "schedule": [
       {
         "cd": "小明",
         "ft": "Brint",
-        "time": "10:00",
-        "event": "音频",
+        "slotIndex": 1,
+        "event": "Audio",
         "studio": "F16"
       },
       {
         "cd": "小红",
         "ft": "Brint",
-        "time": "10:20",
-        "event": "音频",
+        "slotIndex": 2,
+        "event": "Video",
         "studio": "F25"
       }
     ]
   },
   {
     "name": "Audrey",
-    "arrange": [
+    "schedule": [
       {
         "cd": "小明",
         "ft": "Audrey",
-        "time": "11:00",
-        "event": "音频",
+        "slotIndex": 3,
+        "event": "Video",
         "studio": "F16"
       },
       {
         "cd": "小红",
         "ft": "Audrey",
-        "time": "11:20",
-        "event": "音频",
+        "slotIndex": 6,
+        "event": "Audio",
         "studio": "F25"
       }
     ]
+  },
+  {
+      "name": "Charlotte",
+      "schedule": [
+      ]
+  },
+  {
+      "name": "Kaseryn",
+      "schedule": [
+      ]
+  },
+  {
+      "name": "Mel",
+      "schedule": [
+      ]
+  },
+  {
+      "name": "Shelley",
+      "schedule": [
+      ]
+  },
+  {
+      "name": "Vanessa",
+      "schedule": [
+      ]
   }
 ]

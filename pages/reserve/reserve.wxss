@@ -20,3 +20,18 @@
   border-right: 1rpx #ddd solid;
   border-bottom: 1rpx #ddd solid;
 }
+.t_slot {
+  height: 80rpx;
+  width: 150rpx;
+  vertical-align: middle;
+  display: table-cell;
+  text-align: center;
+  border-right: 1rpx #ddd solid;
+  border-bottom: 1rpx #ddd solid;
+  font-size: 26rpx;
+}
+.t_ft {
+  font-size: 30rpx;
+  text-align: center;
+  vertical-align: middle;
+}

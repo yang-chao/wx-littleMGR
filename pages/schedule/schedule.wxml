@@ -1,29 +1,40 @@
 <!--pages/schedule/schedule.wxml-->
-<view class='tr'>
-  <view class='tc'>
-    <view>CD：</view>
-    <view>Time：</view>
-    <view>FT：</view>
-    <view>Event：</view>
-    <view>Studio：</view>
+<view class='tc'>
+  <view class='tr'>
+    <image class='icon' src='../../res/img/ic_supervisor_account.png'></image>
+    <input placeholder='CD' value='{{schedule.cd}}'></input>
   </view>
-  <view class='tc'>
-    <view>{{schedule.cd}}</view>
-    <view>{{schedule.time}}</view>
-    <view>{{schedule.ft}}</view>
+
+  <view class='tr'>
+    <image class='icon' src='../../res/img/ic_schedule.png'></image>
+    <input placeholder='Time' value='{{slotTime}}'></input>
+  </view>
+
+  <view class='tr'>
+    <image class='icon' src='../../res/img/ic_person.png'></image>
+    <input placeholder='FT' value='{{schedule.ft}}'></input>
+  </view>
+
+  <view class='tr'>
+    <image class='icon' src='../../res/img/ic_mic.png'></image>
     <picker bindchange="bindEventChange" value="{{eventIndex}}" range="{{eventArray}}">
       <view class="picker">
         {{eventArray[eventIndex]}}
       </view>
     </picker>
+  </view>
+
+  <view class='tr'>
+    <image class='icon' src='../../res/img/ic_room.png'></image>
     <picker bindchange="bindStudioChange" value="{{studioIndex}}" range="{{studioArray}}">
       <view class="picker">
         {{studioArray[studioIndex]}}
       </view>
     </picker>
   </view>
-</view>
-<view class='bottom_zone'>
-  <button class='btn_confirm' bindtap='confirm'>Submit</button>
-  <button class='btn_cancel' bindtap='cancelSchedule'>Cancel</button>
+
+  <view wx:if="{{schedule.slotIndex == -1}}" class='bottom_zone'>
+    <button class='btn_confirm' bindtap='confirm'>Submit</button>
+    <button class='btn_cancel' bindtap='cancelSchedule'>Cancel</button>
+  </view>
 </view>

@@ -1,9 +1,13 @@
 /* pages/schedule/schedule.wxss */
 
 .tr {
+  width: 100%;
+  padding: 30rpx 40rpx;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
+  border-bottom: #ddd 2rpx solid;
+  font-size: 32rpx;
 }
 
 .tc {
@@ -13,10 +17,20 @@
   margin-right: 20rpx;
 }
 
+.tr picker {
+  width: 70%;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 80rpx;
+}
+
 .divider {
   height: 2rpx;
   width: 90%;
-  background-color: #dddddd;
+  background-color: #ddd;
 }
 
 .bottom_zone {
@@ -32,5 +46,5 @@
 
 .btn_confirm {
   background-color: #1aac19;
-  color: #ffffff;
+  color: #fff;
 }

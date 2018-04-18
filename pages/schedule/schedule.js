@@ -1,14 +1,17 @@
 // pages/schedule/schedule.js
-Page({
+const util = require("../../utils/util.js")
 
+Page({
   /**
    * 页面的初始数据
    */
   data: {
     eventIndex: 0,
     studioIndex: 0,
+    slotIndex: -1,
+    slotTime: "",
     schedule: {},
-    eventArray: ['视频', '音频'],
+    eventArray: ['Video', 'Audio'],
     studioArray: ['F16', 'F25']
   },
 
@@ -18,7 +21,9 @@ Page({
   onLoad: function (options) {
     console.log(options)
     this.setData({
-      schedule: JSON.parse(options.schedule)
+      schedule: JSON.parse(options.schedule),
+      slotIndex: options.slotIndex,
+      slotTime: util.getSlotTime(options.slotIndex)
     })
   },
 
@@ -71,14 +76,14 @@ Page({
 
   },
 
-  cancelSchedule: function() {
+  cancelSchedule: function () {
     console.log("close schedule")
     wx.navigateBack({
       url: "../reserve/reserve"
     })
   },
 
-  confirmSchedule: function() {
+  confirmSchedule: function () {
     // 提交预约
 
   },

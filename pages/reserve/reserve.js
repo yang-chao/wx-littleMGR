@@ -1,22 +1,14 @@
 // pages/reserve/reserve.js
+const api = require("../../constants/api.js")
+const config = require("../../constants/config.js")
+
 var that
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    timeList: [
-      "10:00",
-      "10:20",
-      "10:40",
-      "11:00",
-      "11:20",
-      "11:40",
-      "12:00",
-      "14:00",
-      "14:20",
-      "14:40"
-    ],
+    slotList: config.timeSlots,
     arrange: []
   },
 
@@ -80,14 +72,15 @@ Page({
 
   openSchedule: function (event) {
     wx.navigateTo({
-      url: '../schedule/schedule?schedule=' + JSON.stringify(event.currentTarget.dataset.schedule)
+      url: '../schedule/schedule?slotIndex=' + event.currentTarget.dataset.index + 
+      '&schedule=' + JSON.stringify(event.currentTarget.dataset.schedule)
     });
   }
 })
 
 function requestArrange(date) {
   wx.request({
-    url: 'http://localhost:8000/cdmanager/arrange/' + date,
+    url: api.arrange + date,
     data: {
       // x: '',
       // y: ''
@@ -99,16 +92,16 @@ function requestArrange(date) {
       console.log(res.data)
       for (var j = 0; j < res.data.length; j++) {
         var scheduleList = [];
-        for (var i = 0; i < that.data.timeList.length; i++) {
+        for (var i = 0; i < that.data.slotList.length; i++) {
           var schedule = {};
-          schedule["timeIndex"] = -1;
+          schedule["slotIndex"] = -1; // -1表示可预约，-2表示不可预约，非负数表示预约时段
           scheduleList.push(schedule)
         }
 
         var scheduleByFT = res.data[j];
         for (var i = 0; i < scheduleByFT.schedule.length; i++) {
-          if (scheduleByFT.schedule[i].timeIndex < scheduleList.length) {
-            scheduleList[scheduleByFT.schedule[i].timeIndex] = scheduleByFT.schedule[i];
+          if (scheduleByFT.schedule[i].slotIndex < scheduleList.length) {
+            scheduleList[scheduleByFT.schedule[i].slotIndex] = scheduleByFT.schedule[i];
           }
         }
         res.data[j].schedule = scheduleList

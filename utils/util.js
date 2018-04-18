@@ -1,3 +1,5 @@
+const config = require("../constants/config.js")
+
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -14,6 +16,12 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+function getSlotTime(slotIndex) {
+  var slotList = config.timeSlots
+  return slotList[slotIndex]
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  getSlotTime: getSlotTime
 }
