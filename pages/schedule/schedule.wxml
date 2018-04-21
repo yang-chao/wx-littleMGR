@@ -1,42 +1,55 @@
 <!--pages/schedule/schedule.wxml-->
 <view class='tc'>
-<form bindsubmit='submitSchedule'>
-  <view class='tr'>
-    <image class='icon' src='../../res/img/ic_supervisor_account.png'></image>
-    <input type='text' name='cd' placeholder='CD' value='{{schedule.cd}}'></input>
-  </view>
+  <form bindsubmit='submitSchedule' style='width: 100%;'>
+    <view class='tr'>
+      <image class='icon' src='../../res/img/ic_supervisor_account.png'></image>
+      <input wx:if="{{schedule.slotIndex >= 0}}" type='text' disabled='true' name='cd' placeholder='CD' value='{{schedule.cd}}'></input>
+      <input wx:else type='text' name='cd' placeholder='CD'></input>
+    </view>
 
-  <view class='tr'>
-    <image class='icon' src='../../res/img/ic_schedule.png'></image>
-    <input type='text' name='slot_index' placeholder='Time' value='{{slotTime}}'></input>
-  </view>
+    <view class='tr'>
+      <image class='icon' src='../../res/img/ic_schedule.png'></image>
+      <input type='text' name='slot_time' disabled='true' placeholder='Time' value='{{slotTime}}'></input>
+    </view>
 
-  <view class='tr'>
-    <image class='icon' src='../../res/img/ic_person.png'></image>
-    <input type='text' name='ft' placeholder='FT' value='{{schedule.ft}}'></input>
-  </view>
+    <view class='tr'>
+      <image class='icon' src='../../res/img/ic_person.png'></image>
+      <input wx:if="{{schedule.slotIndex >= 0}}" type='text' name='ft' placeholder='FT' disabled='true' value='{{schedule.ft}}'></input>
+      <input wx:else type='text' name='ft' disabled='true' placeholder='FT' value='{{ft}}'></input>
+    </view>
 
-  <view class='tr'>
-    <image class='icon' src='../../res/img/ic_mic.png'></image>
-    <picker name='event' bindchange="bindEventChange" value="{{eventIndex}}" range="{{eventArray}}">
-      <view class="picker">
-        {{eventArray[eventIndex]}}
-      </view>
-    </picker>
-  </view>
+    <view class='tr'>
+      <image class='icon' src='../../res/img/ic_mic.png'></image>
+      <picker wx:if="{{schedule.slotIndex >=0 }}" disabled='true' name='event' bindchange="bindEventChange" value="{{eventIndex}}" range="{{eventArray}}">
+        <view class="picker">
+          {{eventArray[eventIndex]}}
+        </view>
+      </picker>
+      <picker wx:else name='event' bindchange="bindEventChange" value="{{eventIndex}}" range="{{eventArray}}">
+        <view class="picker">
+          {{eventArray[eventIndex]}}
+        </view>
+      </picker>
+    </view>
 
-  <view class='tr'>
-    <image class='icon' src='../../res/img/ic_room.png'></image>
-    <picker name='studio' bindchange="bindStudioChange" value="{{studioIndex}}" range="{{studioArray}}">
-      <view class="picker">
-        {{studioArray[studioIndex]}}
-      </view>
-    </picker>
-  </view>
+    <view class='tr'>
+      <image class='icon' src='../../res/img/ic_room.png'></image>
+      <picker wx:if="{{schedule.slotIndex >= 0}}" disabled='true' name='studio' bindchange="bindStudioChange" value="{{studioIndex}}" range="{{studioArray}}">
+        <view class="picker">
+          {{studioArray[studioIndex]}}
+        </view>
+      </picker>
 
-  <view wx:if="{{schedule.slotIndex == -1}}" class='bottom_zone'>
-    <button class='btn_confirm' form-type='submit'>Submit</button>
-    <button class='btn_cancel' bindtap='cancelSchedule'>Cancel</button>
-  </view>
+      <picker wx:else name='studio' bindchange="bindStudioChange" value="{{studioIndex}}" range="{{studioArray}}">
+        <view class="picker">
+          {{studioArray[studioIndex]}}
+        </view>
+      </picker>
+    </view>
+
+    <view wx:if="{{schedule.slotIndex == -1}}" class='bottom_zone'>
+      <button class='btn_confirm' form-type='submit'>Submit</button>
+      <button class='btn_cancel' bindtap='cancelSchedule'>Cancel</button>
+    </view>
   </form>
 </view>

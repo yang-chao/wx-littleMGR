@@ -15,7 +15,8 @@
         <view class='t_item'><text class='t_ft'>{{item.name}}</text></view>
         <block wx:for="{{item.schedule}}" wx:for-item="schedule">
           <view class='t_item'>
-            <view class='t_item' wx:if="{{schedule.slotIndex >= -1}}" data-index="{{index}}" data-schedule="{{schedule}}" bindtap='openSchedule'>{{schedule.cd}}</view>
+            <view class='t_item' wx:if="{{schedule.slotIndex >= -1}}" data-ft="{{item.name}}"
+             data-index="{{index}}" data-schedule="{{schedule}}" bindtap='openSchedule'>{{schedule.cd}}</view>
           </view>
         </block>
       </view>

@@ -9,7 +9,8 @@ Page({
    */
   data: {
     slotList: config.timeSlots,
-    arrange: []
+    arrange: [],
+    date: ''
   },
 
   /**
@@ -17,8 +18,8 @@ Page({
    */
   onLoad: function (options) {
     that = this
-    console.log(options.query)
-    requestArrange("20180909");
+    console.log(options.date)
+    requestArrange(options.date);
   },
 
   /**
@@ -72,8 +73,9 @@ Page({
 
   openSchedule: function (event) {
     wx.navigateTo({
-      url: '../schedule/schedule?slotIndex=' + event.currentTarget.dataset.index + 
-      '&schedule=' + JSON.stringify(event.currentTarget.dataset.schedule)
+      url: '../schedule/schedule?slotIndex=' + event.currentTarget.dataset.index +
+      '&ft=' + event.currentTarget.dataset.ft + '&schedule=' + JSON.stringify(event.currentTarget.dataset.schedule) +
+      '&date=' + this.data.date
     });
   }
 })

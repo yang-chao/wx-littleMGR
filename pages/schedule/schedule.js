@@ -12,8 +12,10 @@ Page({
     slotIndex: -1,
     slotTime: "",
     schedule: {},
-    eventArray: ['Video', 'Audio'],
-    studioArray: ['F16', 'F25']
+    ft: '',
+    eventArray: ['Audio', 'Video'],
+    studioArray: ['F16', 'F25'],
+    date: ''
   },
 
   /**
@@ -24,7 +26,9 @@ Page({
     this.setData({
       schedule: JSON.parse(options.schedule),
       slotIndex: options.slotIndex,
-      slotTime: util.getSlotTime(options.slotIndex)
+      slotTime: util.getSlotTime(options.slotIndex),
+      ft: options.ft,
+      date: options.date
     })
   },
 
@@ -95,9 +99,9 @@ Page({
       data: {
          'cd': e.detail.value.cd,
          'ft': e.detail.value.ft,
-         'slot_index': e.detail.value.slot_index,
-         'event': e.detail.value.event,
-         'studio': e.detail.value.studio
+         'slot_index': this.data.slotIndex,
+         'event': util.getEventName(e.detail.value.event),
+         'studio': util.getStudioName(e.detail.value.studio)
       },
       success: function (res) {
         if (res.data.code == 1) {
@@ -110,7 +114,7 @@ Page({
 
       },
       complete: function() {
-        console.log(e.detail.value)
+        
       }
     })
   },

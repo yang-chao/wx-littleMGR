@@ -36,6 +36,7 @@
 .bottom_zone {
   display: flex;
   flex-direction: column;
+  margin-top: 50rpx;
 }
 
 .bottom_zone button {
