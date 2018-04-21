@@ -1,4 +1,5 @@
 // pages/schedule/schedule.js
+const api = require("../../constants/api.js")
 const util = require("../../utils/util.js")
 
 Page({
@@ -83,9 +84,35 @@ Page({
     })
   },
 
-  confirmSchedule: function () {
-    // 提交预约
+  // 提交预约
+  submitSchedule: function (e) {
+    wx.request({
+      url: api.schedule + "add",
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      data: {
+         'cd': e.detail.value.cd,
+         'ft': e.detail.value.ft,
+         'slot_index': e.detail.value.slot_index,
+         'event': e.detail.value.event,
+         'studio': e.detail.value.studio
+      },
+      success: function (res) {
+        if (res.data.code == 1) {
+          wx.showToast({
+            title: '预约成功'
+          })
+        }
+      },
+      fail: function() {
 
+      },
+      complete: function() {
+        console.log(e.detail.value)
+      }
+    })
   },
 
   bindEventChange: function (e) {
