@@ -35,7 +35,17 @@ const timeSlots = [
   "18:30-18:45",
   "18:45-19:00"
 ]
+const foreignTeacher = [
+  "Audrey",
+  "Brint",
+  "Charlotte",
+  "Kaseryn",
+  "Mel",
+  "Shelley",
+  "Vanessa"
+]
 
 module.exports = {
-  timeSlots: timeSlots
+  timeSlots: timeSlots,
+  foreignTeacher: foreignTeacher
 }

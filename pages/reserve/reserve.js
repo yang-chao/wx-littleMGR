@@ -18,7 +18,7 @@ Page({
    */
   onLoad: function (options) {
     that = this
-    this.setData ({
+    this.setData({
       date: options.date
     })
   },
@@ -93,6 +93,25 @@ function requestArrange(date) {
     },
     success: function (res) {
       console.log(res.data)
+      // 补全所有外教
+      var exist
+      for (var x in config.foreignTeacher) {
+        exist = false
+        for (var i in res.data) {
+          if (res.data[i].name == config.foreignTeacher[x]) {
+            exist = true
+            break
+          }
+        }
+        if (!exist) {
+          var addNullArrange = {};
+          addNullArrange['name'] = config.foreignTeacher[x]
+          addNullArrange['schedule'] = []
+          res.data.push(addNullArrange)
+        }
+      }
+      console.log(res.data)
+
       for (var j = 0; j < res.data.length; j++) {
         var scheduleList = [];
         for (var i = 0; i < that.data.slotList.length; i++) {

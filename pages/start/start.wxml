@@ -1,0 +1,8 @@
+<!--pages/start/start.wxml-->
+<view class='root'>
+  <view class='tip'>Who are you?</view>
+  <view class='btn_zone'>
+    <button bindtap='onCDSelect'>CD</button>
+    <button bindtap='onFTSelect'>FT</button>
+  </view>
+</view>
