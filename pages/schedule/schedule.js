@@ -82,7 +82,6 @@ Page({
   },
 
   cancelSchedule: function () {
-    console.log("close schedule")
     wx.navigateBack({
       url: "../reserve/reserve"
     })
@@ -101,12 +100,16 @@ Page({
          'ft': e.detail.value.ft,
          'slot_index': this.data.slotIndex,
          'event': util.getEventName(e.detail.value.event),
-         'studio': util.getStudioName(e.detail.value.studio)
+         'studio': util.getStudioName(e.detail.value.studio),
+         'date': this.data.date
       },
       success: function (res) {
         if (res.data.code == 1) {
           wx.showToast({
             title: '预约成功'
+          })
+          wx.navigateBack({
+            url: "../reserve/reserve?refresh=1"
           })
         }
       },

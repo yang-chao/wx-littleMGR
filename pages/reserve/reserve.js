@@ -18,8 +18,9 @@ Page({
    */
   onLoad: function (options) {
     that = this
-    console.log(options.date)
-    requestArrange(options.date);
+    this.setData ({
+      date: options.date
+    })
   },
 
   /**
@@ -32,8 +33,8 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
+  onShow: function (options) {
+    requestArrange(this.data.date);
   },
 
   /**

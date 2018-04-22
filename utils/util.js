@@ -37,7 +37,7 @@ function getStudioName(index) {
     case 1:
       return 'F25'
   }
-}
+}       
 
 module.exports = {
   formatTime: formatTime,
