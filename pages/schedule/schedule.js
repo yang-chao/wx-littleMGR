@@ -106,7 +106,7 @@ Page({
       success: function (res) {
         if (res.data.code == 1) {
           wx.showToast({
-            title: '预约成功'
+            title: 'Schedule successfully!'
           })
           wx.navigateBack({
             url: "../reserve/reserve?refresh=1"

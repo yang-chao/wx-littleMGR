@@ -1,3 +1,4 @@
+var app = getApp()
 const conf = {
   getThisMonthDays(year, month) {
     return new Date(year, month, 0).getDate();
@@ -82,9 +83,16 @@ const conf = {
     this.setData({
       'calendar.days': days,
     });
-    wx.navigateTo({
-      url: '../../pages/reserve/reserve?date=' + this.data.calendar.curYear + '-' +
+    var url = ''
+    var date = this.data.calendar.curYear + '-' +
       this.data.calendar.curMonth + '-' + days[idx].day
+    if (app.globalData.role == 0) {
+      url = '../../pages/reserve/reserve?date=' + date
+    } else {
+      url = '../../pages/ftime/ftime?date=' + date
+    }
+    wx.navigateTo({
+      url: url
     });
   },
   chooseYearAndMonth() {

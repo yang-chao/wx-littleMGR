@@ -1,0 +1,12 @@
+<!--pages/ftime/ftime.wxml-->
+<view class='table_container'>
+  <view class='tc'>
+    <view class='tr' wx:for="{{slotTable}}" wx:for-item="slotRow" wx:for-index="column">
+      <view wx:for="{{slotRow}}" wx:for-index="row">
+        <view wx:if="{{slotStatus[(column * 4) + row] == 1}}" class='t_slot t_slot_selected' data-column='{{column}}' data-row='{{row}}' bindtap='onTimeSelect'>{{item}}</view>
+        <view wx:else class='t_slot t_slot_unselected' data-column='{{column}}' data-row='{{row}}' bindtap='onTimeSelect'>{{item}}</view>
+      </view>
+    </view>
+  </view>
+  <button class='btn_submit' bindtap='onSubmit'>Submit</button>
+</view>

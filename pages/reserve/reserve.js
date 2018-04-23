@@ -112,11 +112,12 @@ function requestArrange(date) {
       }
       console.log(res.data)
 
+      // 设置外教每个时间段的预约状态
       for (var j = 0; j < res.data.length; j++) {
         var scheduleList = [];
         for (var i = 0; i < that.data.slotList.length; i++) {
           var schedule = {};
-          schedule["slotIndex"] = -1; // -1表示可预约，-2表示不可预约，非负数表示预约时段
+          schedule["slotIndex"] = -2; // -1表示可预约，-2表示不可预约，非负数表示预约时段，默认不可预约
           scheduleList.push(schedule)
         }
 

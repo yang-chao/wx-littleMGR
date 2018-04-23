@@ -1,5 +1,13 @@
-/* pages/reserve/reserve.wxss */
-
+/* pages/ftime/ftime.wxss */
+.table_container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding-top: 50rpx;
+}
 .tr {
   display: flex;
   flex-direction: row;
@@ -10,6 +18,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-left: 1rpx #ddd solid;
+  border-top: 1rpx #ddd solid;
 }
 
 .t_item {
@@ -24,7 +34,7 @@
 
 .t_slot {
   height: 80rpx;
-  width: 150rpx;
+  width: 170rpx;
   vertical-align: middle;
   display: table-cell;
   text-align: center;
@@ -33,8 +43,19 @@
   font-size: 26rpx;
 }
 
-.t_ft {
-  font-size: 30rpx;
-  text-align: center;
-  vertical-align: middle;
+.t_slot_selected {
+  background-color: #1aac19;
+  color: #fff;
+}
+
+.t_slot_unselected {
+  background-color: #fff;
+  color: #000;
+}
+
+.btn_submit {
+  background-color: #1aac19;
+  width: 90%;
+  margin-top: 50rpx;
+  color: #fff;
 }

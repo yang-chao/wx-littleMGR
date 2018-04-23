@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/start/start",
+    "pages/ftime/ftime",
     "pages/index/index",
     "pages/reserve/reserve",
     "pages/logs/logs",

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "Time Table",
+  "usingComponents": {
+    "table": "../../template/table/table"
+  }
+}

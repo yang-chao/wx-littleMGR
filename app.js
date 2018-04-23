@@ -35,6 +35,6 @@ App({
   },
   globalData: {
     userInfo: null,
-    role: 0
+    role: 0 // 0教研，1外教
   }
 })
