@@ -114,11 +114,15 @@ function requestArrange(date) {
 
       // 设置外教每个时间段的预约状态
       for (var j = 0; j < res.data.length; j++) {
-        var scheduleList = [];
-        for (var i = 0; i < that.data.slotList.length; i++) {
-          var schedule = {};
-          schedule["slotIndex"] = -2; // -1表示可预约，-2表示不可预约，非负数表示预约时段，默认不可预约
-          scheduleList.push(schedule)
+        var scheduleList = []
+        if (res.data[j].slot_status) {
+          scheduleList = res.data[j].slot_status.split(",")
+        } else {
+          for (var i = 0; i < that.data.slotList.length; i++) {
+            var schedule = {};
+            schedule["slotIndex"] = -2; // -1表示可预约，-2表示不可预约，非负数表示预约时段，默认不可预约
+            scheduleList.push(schedule)
+          }
         }
 
         var scheduleByFT = res.data[j];

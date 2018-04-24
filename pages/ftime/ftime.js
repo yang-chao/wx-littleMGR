@@ -20,7 +20,7 @@ Page({
     var slotList = config.timeSlots
     var slotStatus = []
     for (var i = 0; i < slotList.length; i++) {
-      slotStatus.push(0) // 0表示不可预约，1可预约
+      slotStatus.push(-2) // -1表示可预约，-2表示不可预约默认不可预约
     }
     var slotTable = []
     for (var i = 0; i <= slotList.length / 4; i++) {
@@ -89,10 +89,10 @@ Page({
     var slotStatus = this.data.slotStatus
     var index = (column * 4) + row
     console.log('column: ' + column + ' row: ' + row + ' index: ' + index)
-    if (slotStatus[index] == 0) {
-      slotStatus[index] = 1
+    if (slotStatus[index] == -2) {
+      slotStatus[index] = -1
     } else {
-      slotStatus[index] = 0
+      slotStatus[index] = -2
     }
     console.log(slotStatus)
     this.setData({
