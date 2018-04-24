@@ -18,8 +18,18 @@
   vertical-align: middle;
   display: table-cell;
   text-align: center;
-  border-right: 1rpx #ddd solid;
-  border-bottom: 1rpx #ddd solid;
+  border-right: 0.5rpx #ddd solid;
+  border-bottom: 0.5rpx #ddd solid;
+  font-size: 26rpx;
+}
+
+.item_disable {
+  background-color: #f7f7f7;
+}
+
+.item_enable {
+  background-color: #1aac19;
+  color: #fff;
 }
 
 .t_slot {
@@ -28,8 +38,8 @@
   vertical-align: middle;
   display: table-cell;
   text-align: center;
-  border-right: 1rpx #ddd solid;
-  border-bottom: 1rpx #ddd solid;
+  border-right: 0.5rpx #ddd solid;
+  border-bottom: 0.5rpx #ddd solid;
   font-size: 26rpx;
 }
 

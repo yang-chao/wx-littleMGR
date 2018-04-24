@@ -115,8 +115,13 @@ function requestArrange(date) {
       // 设置外教每个时间段的预约状态
       for (var j = 0; j < res.data.length; j++) {
         var scheduleList = []
-        if (res.data[j].slot_status) {
-          scheduleList = res.data[j].slot_status.split(",")
+        if (res.data[j].slot_status != null) {
+          var slotIndexs = res.data[j].slot_status.split(",")
+          for (var k = 0; k < slotIndexs.length; k++) {
+            var schedule = {};
+            schedule["slotIndex"] = slotIndexs[k];
+            scheduleList.push(schedule)
+          }
         } else {
           for (var i = 0; i < that.data.slotList.length; i++) {
             var schedule = {};
@@ -132,9 +137,9 @@ function requestArrange(date) {
           }
         }
         res.data[j].schedule = scheduleList
-
-        console.log(res.data)
       }
+      console.log('final data')
+      console.log(res.data)
 
       that.setData({
         arrange: res.data

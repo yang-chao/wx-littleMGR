@@ -108,7 +108,7 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       data: {
-        'ft': 'Brint',
+        'ft': 'Audrey',
         'slot_index': this.data.slotStatus.join(),
         'date': this.data.date
       },
