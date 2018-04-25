@@ -6,7 +6,7 @@ Page({
    */
   data: {
     fts: [
-      { name: 'Audrey', value: 'Audrey', checked: 'true' },
+      { name: 'Audrey', value: 'Audrey' },
       { name: 'Brint', value: 'Brint' },
       { name: 'Charlotte', value: 'Charlotte' },
       { name: 'Kaseryn', value: 'Kaseryn' },
@@ -19,6 +19,11 @@ Page({
 
   radioChange: function (e) {
     console.log('radio发生change事件，携带value值为：', e.detail.value)
+    wx.setStorageSync('ft_name', e.detail.value)
+
+    wx.navigateTo({
+      url: '../index/index',
+    })
   },
 
   /**

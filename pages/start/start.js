@@ -67,16 +67,24 @@ Page({
 
   onCDSelect: function () {
     app.globalData.role = 0
+    var url = '../profile/profile'
+    console.log('cd name: ' + wx.getStorageSync("cd_name"))
+    if (wx.getStorageSync("cd_name")) {
+      url = '../index/index'
+    }
     wx.navigateTo({
-      url: '../index/index',
+      url: url,
     })
   },
 
   onFTSelect: function () {
     app.globalData.role = 1
+    var url = '../profile/profile'
+    if (wx.getStorageSync("ft_name")) {
+      url = '../index/index'
+    }
     wx.navigateTo({
-      // url: '../index/index',
-      url: '../profile/profile',
+      url: url,
     })
   }
 })

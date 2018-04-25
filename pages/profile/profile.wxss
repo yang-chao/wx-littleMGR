@@ -1,10 +1,47 @@
 /* pages/profile/profile.wxss */
+
+page {
+  height: 100%;
+}
+
+.root {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .radio_group {
   width: 100%;
+  vertical-align: middle;
   display: flex;
   flex-direction: column;
 }
+
 .radio {
-  align-items: center;
-  font-size: 50rpx;
+  margin-left: 30%;
+  font-size: 40rpx;
+  margin-top: 20rpx;
+}
+
+.radio radio {
+  margin-right: 20rpx;
+}
+
+.name_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.name_input {
+  width: 90%;
+  font-size: 36rpx;
+  border: 0.5rpx solid #ddd;
+}
+
+.name_submit {
+  background-color: #1aac19;
+  width: 90%;
+  color: #fff;
 }
