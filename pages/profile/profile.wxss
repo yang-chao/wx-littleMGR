@@ -1,0 +1,10 @@
+/* pages/profile/profile.wxss */
+.radio_group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.radio {
+  align-items: center;
+  font-size: 50rpx;
+}

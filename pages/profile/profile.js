@@ -1,19 +1,33 @@
-// pages/start/start.js
+// pages/profile/profile.js
 var app = getApp()
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
+    fts: [
+      { name: 'Audrey', value: 'Audrey', checked: 'true' },
+      { name: 'Brint', value: 'Brint' },
+      { name: 'Charlotte', value: 'Charlotte' },
+      { name: 'Kaseryn', value: 'Kaseryn' },
+      { name: 'Mel', value: 'Mel' },
+      { name: 'Shelley', value: 'Shelley' },
+      { name: 'Vanessa', value: 'Vanessa' }
+    ],
+    role: 0
+  },
 
+  radioChange: function (e) {
+    console.log('radio发生change事件，携带value值为：', e.detail.value)
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      role: app.globalData.role
+    })
   },
 
   /**
@@ -63,20 +77,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-
-  onCDSelect: function () {
-    app.globalData.role = 0
-    wx.navigateTo({
-      url: '../index/index',
-    })
-  },
-
-  onFTSelect: function () {
-    app.globalData.role = 1
-    wx.navigateTo({
-      // url: '../index/index',
-      url: '../profile/profile',
-    })
   }
 })

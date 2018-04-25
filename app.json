@@ -5,7 +5,8 @@
     "pages/index/index",
     "pages/reserve/reserve",
     "pages/logs/logs",
-    "pages/schedule/schedule"
+    "pages/schedule/schedule",
+    "pages/profile/profile"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,0 +1,7 @@
+<!--pages/profile/profile.wxml-->
+<input wx:if="{{role == 0}}" placeholder='enter your name'></input>
+<radio-group wx:else class="radio_group" bindchange="radioChange">
+  <label class="radio" wx:for="{{fts}}">
+    <radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+  </label>
+</radio-group>
