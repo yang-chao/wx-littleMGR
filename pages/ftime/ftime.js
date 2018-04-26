@@ -101,6 +101,7 @@ Page({
   },
 
   onSubmit: function() {
+    var ftName = wx.getStorageSync('ft_name')
     wx.request({
       url: api.slotUpdate,
       method: 'POST',
@@ -108,11 +109,12 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       data: {
-        'ft': 'Audrey',
+        'ft': ftName,
         'slot_index': this.data.slotStatus.join(),
         'date': this.data.date
       },
       success: function (res) {
+        console.log(res.data)
         if (res.data.code == 1) {
           wx.showToast({
             title: 'Update time table successfully!'

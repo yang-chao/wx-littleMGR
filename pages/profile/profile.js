@@ -20,9 +20,20 @@ Page({
   radioChange: function (e) {
     console.log('radio发生change事件，携带value值为：', e.detail.value)
     wx.setStorageSync('ft_name', e.detail.value)
-
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../index/index',
+    })
+  },
+
+  onSubmit: function(e) {
+    wx.setStorage({
+      key: 'cd_name',
+      data: e.detail.value.cd_name,
+      success: function() {
+        wx.redirectTo({
+          url: '../index/index',
+        })
+      }
     })
   },
 

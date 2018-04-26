@@ -30,17 +30,23 @@ page {
 }
 
 .name_container {
+  width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .name_input {
-  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  min-height: 100rpx;
+  padding-left: 30rpx;
   font-size: 36rpx;
   border: 0.5rpx solid #ddd;
 }
 
 .name_submit {
+  margin-top: 60rpx;
   background-color: #1aac19;
   width: 90%;
   color: #fff;

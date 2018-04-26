@@ -1,8 +1,10 @@
 <!--pages/profile/profile.wxml-->
 <view class='root'>
   <view wx:if="{{role == 0}}" class='name_container'>
-    <input class='name_input' placeholder='enter your name'></input>
-    <button class='name_submit'>Confirm</button>
+    <form bindsubmit='onSubmit' style='width:100%;'>
+      <input class='name_input' name="cd_name" placeholder='enter your name'></input>
+      <button class='name_submit' form-type='submit'>Confirm</button>
+    </form>
   </view>
   <radio-group wx:else class="radio_group" bindchange="radioChange">
     <label class="radio" wx:for="{{fts}}">
