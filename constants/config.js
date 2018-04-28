@@ -42,8 +42,7 @@ const foreignTeacher = [
   "Charlotte",
   "Kaseryn",
   "Mel",
-  "Shelley",
-  "Vanessa"
+  "Shelley"
 ]
 
 module.exports = {
