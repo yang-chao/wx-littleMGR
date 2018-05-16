@@ -20,9 +20,9 @@
 
     <view class='tr'>
       <image class='icon' src='../../res/img/ic_mic.png'></image>
-      <picker wx:if="{{schedule.slotIndex >=0 }}" disabled='true' name='event' bindchange="bindEventChange" value="{{eventIndex}}" range="{{eventArray}}">
+      <picker wx:if="{{schedule.slotIndex >=0 }}" disabled='true' name='event'>
         <view class="picker">
-          {{eventArray[eventIndex]}}
+          {{schedule.event}}
         </view>
       </picker>
       <picker wx:else name='event' bindchange="bindEventChange" value="{{eventIndex}}" range="{{eventArray}}">
@@ -34,9 +34,15 @@
 
     <view class='tr'>
       <image class='icon' src='../../res/img/ic_room.png'></image>
-      <picker wx:if="{{schedule.slotIndex >= 0}}" disabled='true' name='studio' bindchange="bindStudioChange" value="{{studioIndex}}" range="{{studioArray}}">
+      <picker wx:if="{{schedule.slotIndex >= 0}}" disabled='true' name='studio'>
         <view class="picker">
-          {{studioArray[studioIndex]}}
+        {{schedule.studio}}
+        </view>
+      </picker>
+
+      <picker wx:elif="{{studioArray.length == 0}}" disabled='tue' name='studio'>
+        <view class="no_available">
+          no studio available
         </view>
       </picker>
 

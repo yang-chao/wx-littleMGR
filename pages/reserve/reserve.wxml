@@ -17,7 +17,7 @@
         </view>
         <block wx:for="{{item.schedule}}" wx:for-item="schedule">
           <view class='t_item'>
-            <view class='t_item item_enable' wx:if="{{schedule.slotIndex >= -1}}" data-ft="{{item.name}}" data-index="{{index}}" data-schedule="{{schedule}}" bindtap='openSchedule'>{{schedule.cd}}</view>
+            <view class='t_item item_enable' wx:if="{{schedule.slotIndex >= -1}}" data-ft="{{item.name}}" data-index="{{index}}" data-schedule="{{schedule}}" bindtap='openSchedule'>{{schedule.cd}}<view class='t_studio'>{{schedule.studio}}</view></view>
             <view class='t_item item_disable' wx:else></view>
           </view>
         </block>

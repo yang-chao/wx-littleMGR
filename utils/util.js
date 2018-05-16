@@ -19,29 +19,9 @@ const formatNumber = n => {
 function getSlotTime(slotIndex) {
   var slotList = config.timeSlots
   return slotList[slotIndex]
-}
-
-function getEventName(index) {
-  switch (index) {
-    case 0:
-      return 'Audio'
-    case 1:
-      return 'Video'
-  }
-}
-
-function getStudioName(index) {
-  switch (index) {
-    case 0:
-      return 'F16'
-    case 1:
-      return 'F25'
-  }
-}       
+}   
 
 module.exports = {
   formatTime: formatTime,
-  getSlotTime: getSlotTime,
-  getEventName: getEventName,
-  getStudioName: getStudioName
+  getSlotTime: getSlotTime
 }

@@ -2,6 +2,7 @@
 const api = require("../../constants/api.js")
 const util = require("../../utils/util.js")
 
+var that
 Page({
   /**
    * 页面的初始数据
@@ -22,6 +23,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    that = this
     console.log(options)
     this.setData({
       schedule: JSON.parse(options.schedule),
@@ -30,6 +32,14 @@ Page({
       ft: options.ft,
       date: options.date
     })
+    if (this.data.schedule.slotIndex < 0) {
+      wx.showLoading({
+        title: '加载中...',
+        success: function() {
+          getStudioStatus()
+        }
+      })
+    }
   },
 
   /**
@@ -89,6 +99,23 @@ Page({
 
   // 提交预约
   submitSchedule: function (e) {
+    if (!e.detail.value.cd) {
+      wx.showModal({
+        content: 'Please enter CD name',
+        showCancel: false,
+        confirmText: "Confirm"
+      })
+      return
+    }
+    if (this.data.studioArray.length == 0) {
+      wx.showModal({
+        content: 'No studio available',
+        showCancel: false,
+        confirmText: "Confirm"
+      })
+      return
+    }
+
     wx.request({
       url: api.schedule + "add",
       method: 'POST',
@@ -99,8 +126,8 @@ Page({
          'cd': e.detail.value.cd,
          'ft': e.detail.value.ft,
          'slot_index': this.data.slotIndex,
-         'event': util.getEventName(e.detail.value.event),
-         'studio': util.getStudioName(e.detail.value.studio),
+         'event': this.data.eventArray[e.detail.value.event],
+         'studio': this.data.studioArray[e.detail.value.studio],
          'date': this.data.date
       },
       success: function (res) {
@@ -136,3 +163,34 @@ Page({
     })
   },
 })
+
+function getStudioStatus() {
+  wx.request({
+    url: api.studioStatus + that.data.date + '/' + that.data.slotIndex,
+    success: function (res) {
+      console.log("get studio status")
+      console.log(res.data)
+      var newStudioArray = []
+      var studioArray = that.data.studioArray
+      var inUse
+      for (var i in studioArray) {
+        inUse = false
+        for (var j in res.data) {
+          if (studioArray[i] == res.data[j]) {
+            inUse = true
+            break
+          }
+        }
+        if (!inUse) {
+          newStudioArray.push(studioArray[i])
+        }
+      }
+      that.setData({
+        studioArray: newStudioArray
+      })
+    },
+    complete: function() {
+      wx.hideLoading()
+    }
+  })
+}

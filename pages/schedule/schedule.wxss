@@ -49,3 +49,7 @@
   background-color: #1aac19;
   color: #fff;
 }
+
+.no_available {
+  color: #ff0000;
+}

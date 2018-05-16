@@ -48,3 +48,7 @@
   text-align: center;
   vertical-align: middle;
 }
+
+.t_studio {
+  font-size: 20rpx;
+}
